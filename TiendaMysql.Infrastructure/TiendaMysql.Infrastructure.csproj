@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TiendaMysql.Application\TiendaMysql.Application.csproj" />
     <ProjectReference Include="..\TiendaMysql.Domain\TiendaMysql.Domain.csproj" />
   </ItemGroup>
 

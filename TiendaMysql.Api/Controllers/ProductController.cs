@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TiendaMysql.Application.UsesCase.GetAll;
+using TiendaMysql.Application.UsesCase.Producto.Create;
+using TiendaMysql.Application.UsesCase.Producto.GetAll;
 
 namespace TiendaMysql.Api.Controllers
 {
@@ -14,6 +14,14 @@ namespace TiendaMysql.Api.Controllers
         {
            var products =  await mediator.Send(new GetAllQuery());
            return Ok(products);
+        }
+
+        [HttpPost("create")]
+        public async Task<IActionResult> CreateProduct([FromBody] CreateCommand command)
+        {
+           var id =  await mediator.Send(command);
+
+            return Created("",new {id = id});
         }
     }
 }

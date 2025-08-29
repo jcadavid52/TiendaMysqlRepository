@@ -2,7 +2,7 @@
 using TiendaMysql.Application.Dtos;
 using TiendaMysql.Domain.Ports;
 
-namespace TiendaMysql.Application.UsesCase.GetAll
+namespace TiendaMysql.Application.UsesCase.Producto.GetAll
 {
     public class GetAllQueryHandler(IProductRepository productRepository) : IRequestHandler<GetAllQuery, GetAllQueryResponse>
     {

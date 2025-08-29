@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TiendaMysql.Domain.Ports;
 using TiendaMysql.Infrastructure.Adapters;
 using TiendaMysql.Infrastructure.DataSource;
 
@@ -10,6 +11,8 @@ namespace TiendaMysql.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
+
             var connectionString = configuration.GetConnectionString("db")
              ?? throw new ArgumentNullException(nameof(configuration));
 
